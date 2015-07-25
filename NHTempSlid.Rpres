@@ -1,0 +1,47 @@
+Predicting Temperature in New Haven, CT
+========================================================
+author: Jake Noble
+date: July 2015
+
+Weather patterns can be very difficult to predict.
+========================================================
+
+
+- long range forecasts have very low accuracy
+
+- Even short term predictions are often wrong
+
+- climate patterns can be predicted with more accuracy
+
+Historic Data on New Haven, CT
+========================================================
+
+Trends in historic data can show where climate change might be headed.
+
+```{r,echo=FALSE}
+library(datasets)
+data(nhtemp)
+years <- 1912:1971
+plot(years,nhtemp,xlab="Year",ylab="Temp (F)")
+```
+
+Extrapolating into the Future!!!
+========================================================
+By fitting a line to the data we can follow the trends forward or backward in time.
+
+```{r, echo=FALSE}
+library(datasets)
+data(nhtemp)
+years <- 1912:1971
+plot(years,nhtemp,xlab="Year",ylab="Temp (F)")
+fit <- lm(nhtemp~years)
+abline(coef(fit)[1],coef(fit)[2],col="red",lwd=3)
+```
+
+What Does it All Mean?
+===
+- The average temperature in New Haven, CT has trended upward.
+
+- The rate of change predictied by the model is 0.037 degrees F/year.
+
+- Climate change is real, albeit gradual.
